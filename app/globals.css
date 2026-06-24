@@ -1,26 +1,154 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-blue-50: #eff6ff;
+  --color-brand-blue-100: #dbeafe;
+  --color-brand-blue-500: #3b82f6;
+  --color-brand-blue-600: #2563eb;
+  --color-brand-blue-700: #1d4ed8;
+  --color-brand-violet-500: #8b5cf6;
+  --color-brand-violet-600: #7c3aed;
+  --color-dark-navy: #0b0f19;
+  --color-deep-black: #030712;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030712;
+  --foreground: #f3f4f6;
+  --card-bg: rgba(11, 15, 25, 0.7);
+  --card-border: rgba(255, 255, 255, 0.08);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(11, 15, 25, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(17, 24, 39, 0.85);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.25);
+  transform: translateY(-4px);
+}
+
+/* Glow effects */
+.glow-blue {
+  box-shadow: 0 0 50px -10px rgba(59, 130, 246, 0.3);
+}
+
+.glow-violet {
+  box-shadow: 0 0 50px -10px rgba(139, 92, 246, 0.3);
+}
+
+/* Animated backgrounds */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.08);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 10s ease-in-out infinite;
+}
+
+/* Custom Text Gradients */
+.text-gradient-blue-violet {
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cyan-blue {
+  background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* World Map pulse dot animation */
+@keyframes map-ping {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.animate-map-ping {
+  animation: map-ping 2.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Phone screen pulse rings */
+@keyframes phone-ping {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-phone-ping {
+  animation: phone-ping 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
