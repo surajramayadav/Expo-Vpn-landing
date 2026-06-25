@@ -90,25 +90,27 @@ export default function Home() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden">
-      {/* Background Radial Glow */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-brand-blue-600/10 blur-[150px] -z-20"></div>
-      <div className="absolute top-[40%] right-[-10%] w-[60%] h-[60%] rounded-full bg-brand-violet-500/10 blur-[180px] -z-20"></div>
-      <div className="absolute bottom-[-10%] left-[20%] w-[50%] h-[50%] rounded-full bg-brand-blue-700/10 blur-[150px] -z-20 animate-pulse-slow"></div>
+    <div className="relative w-full">
+      {/* Background Radial Glow Container to prevent page overflow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-20">
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-brand-blue-600/10 blur-[150px]"></div>
+        <div className="absolute top-[40%] right-[-10%] w-[60%] h-[60%] rounded-full bg-brand-violet-500/10 blur-[180px]"></div>
+        <div className="absolute bottom-[-10%] left-[20%] w-[50%] h-[50%] rounded-full bg-brand-blue-700/10 blur-[150px] animate-pulse-slow"></div>
+      </div>
 
       {/* STICKY NAVBAR */}
       <header className="sticky top-0 z-50 w-full glass-panel border-x-0 border-t-0 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-brand-blue-500 to-brand-violet-600 flex items-center justify-center shadow-lg shadow-brand-blue-500/25">
+            <a href="#home" className="flex items-center gap-3 group">
+              <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-brand-blue-500 to-brand-violet-600 flex items-center justify-center shadow-lg shadow-brand-blue-500/25 group-hover:scale-105 transition-transform duration-300">
                 <Shield className="text-white" size={22} />
               </div>
               <span className="text-xl font-extrabold tracking-tight text-white bg-clip-text">
                 Expo<span className="text-brand-blue-500">VPN</span>
               </span>
-            </div>
+            </a>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
@@ -194,7 +196,7 @@ export default function Home() {
       </header>
 
       {/* HERO SECTION */}
-      <section className="relative pt-12 pb-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section id="home" className="relative pt-6 pb-16 md:pt-12 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* Hero text content */}
@@ -218,7 +220,9 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
               {/* Google Play Store Badge Button */}
               <a
-                href="#download"
+                href="https://play.google.com/store/apps/details?id=com.expo.vpn"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 w-48 px-4 py-2.5 rounded-xl bg-[#090D16] hover:bg-[#111827] border border-white/10 hover:border-brand-blue-500/50 transition-all duration-300 shadow-xl group"
               >
                 {/* Custom Google Play Icon */}
@@ -250,15 +254,15 @@ export default function Home() {
 
           {/* Interactive Phone Mockup column */}
           <div className="lg:col-span-5 flex justify-center items-center">
-            <div className="relative w-80 h-[640px] rounded-[50px] border-[10px] border-gray-800 bg-deep-black shadow-[0_0_80px_rgba(59,130,246,0.15)] ring-1 ring-white/10 flex flex-col overflow-hidden animate-float">
+            <div className="relative w-72 h-[560px] sm:w-80 sm:h-[640px] rounded-[40px] sm:rounded-[50px] border-[8px] sm:border-[10px] border-gray-800 bg-deep-black shadow-[0_0_80px_rgba(59,130,246,0.15)] ring-1 ring-white/10 flex flex-col overflow-hidden animate-float">
               
               {/* Phone Speaker & Camera Notch */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-7 bg-gray-800 rounded-b-3xl z-30 flex items-center justify-center">
-                <span className="w-16 h-1 bg-gray-900 rounded-full block mb-2"></span>
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 sm:w-40 sm:h-7 bg-gray-800 rounded-b-2xl sm:rounded-b-3xl z-30 flex items-center justify-center">
+                <span className="w-12 h-0.5 sm:w-16 sm:h-1 bg-gray-900 rounded-full block mb-1.5 sm:mb-2"></span>
               </div>
 
               {/* Screen Top Status bar */}
-              <div className="h-10 pt-4 px-6 flex justify-between items-center text-xs text-gray-400 select-none z-20">
+              <div className="h-8 pt-3 sm:h-10 sm:pt-4 px-4 sm:px-6 flex justify-between items-center text-xs text-gray-400 select-none z-20">
                 <span className="font-semibold">09:41</span>
                 <div className="flex items-center gap-1.5">
                   <Wifi size={14} className={vpnConnected ? "text-brand-blue-500" : "text-gray-400"} />
@@ -272,9 +276,9 @@ export default function Home() {
               </div>
 
               {/* App Screen Content */}
-              <div className="flex-1 px-5 py-4 flex flex-col justify-between items-center relative z-10">
+              <div className="flex-1 px-5 py-3 sm:py-4 flex flex-col justify-between items-center relative z-10">
                 {/* Header within App */}
-                <div className="w-full flex items-center justify-between mt-2 select-none">
+                <div className="w-full flex items-center justify-between mt-1 sm:mt-2 select-none">
                   <div className="flex items-center gap-1.5">
                     <Shield className="text-brand-blue-500" size={16} />
                     <span className="text-xs font-black tracking-wide text-white">EXPO VPN</span>
@@ -285,9 +289,9 @@ export default function Home() {
                 </div>
 
                 {/* Main status area & Toggle button */}
-                <div className="flex-1 flex flex-col items-center justify-center w-full py-4">
+                <div className="flex-1 flex flex-col items-center justify-center w-full py-2 sm:py-4">
                   {/* Status Indicator */}
-                  <div className="mb-8 text-center">
+                  <div className="mb-4 sm:mb-8 text-center">
                     <p className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">
                       VPN Connection
                     </p>
@@ -300,7 +304,7 @@ export default function Home() {
                   </div>
 
                   {/* Pulsing button circles */}
-                  <div className="relative w-44 h-44 flex items-center justify-center">
+                  <div className="relative w-36 h-36 sm:w-44 sm:h-44 flex items-center justify-center">
                     {/* Ring animations */}
                     {vpnConnected && (
                       <>
@@ -316,7 +320,7 @@ export default function Home() {
                     <button
                       onClick={handleVpnToggle}
                       disabled={isConnecting}
-                      className={`relative z-10 w-32 h-32 rounded-full flex flex-col items-center justify-center transition-all duration-500 focus:outline-none ${
+                      className={`relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-full flex flex-col items-center justify-center transition-all duration-500 focus:outline-none ${
                         vpnConnected 
                           ? "bg-gradient-to-tr from-brand-blue-500 to-brand-violet-600 shadow-[0_0_35px_rgba(59,130,246,0.5)] border-4 border-brand-blue-100/10 scale-102"
                           : "bg-gray-900 border-4 border-white/5 hover:border-white/10"
@@ -327,10 +331,10 @@ export default function Home() {
                         className={`transition-colors duration-500 ${
                           vpnConnected ? "text-white scale-110" : "text-gray-500"
                         }`} 
-                        size={40} 
+                        size={36} 
                         strokeWidth={1.5}
                       />
-                      <span className={`text-[10px] font-extrabold tracking-widest mt-2 transition-colors duration-500 ${
+                      <span className={`text-[8px] sm:text-[10px] font-extrabold tracking-widest mt-2 transition-colors duration-500 ${
                         vpnConnected ? "text-white" : "text-gray-400"
                       }`}>
                         {vpnConnected ? "TAP TO DISCONNECT" : "TAP TO CONNECT"}
@@ -339,7 +343,7 @@ export default function Home() {
                   </div>
 
                   {/* Info card (IP address) */}
-                  <div className="mt-8 w-full glass-panel border-white/5 rounded-xl p-3.5 flex items-center justify-between">
+                  <div className="mt-4 sm:mt-8 w-full glass-panel border-white/5 rounded-xl p-3.5 flex items-center justify-between">
                     <div className="text-left">
                       <p className="text-[9px] text-gray-400 uppercase font-semibold">Virtual IP Address</p>
                       <p className="text-xs font-mono font-bold text-white transition-all duration-300">
@@ -399,7 +403,7 @@ export default function Home() {
       </section>
 
       {/* FEATURES SECTION */}
-      <section id="features" className="py-24 border-y border-white/5 bg-[#070A13]/30">
+      <section id="features" className="py-24 border-y border-white/5 bg-[#070A13]/30 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <h2 className="text-xs font-bold text-brand-blue-500 uppercase tracking-widest">Advanced Features</h2>
@@ -482,7 +486,7 @@ export default function Home() {
       </section>
 
       {/* GLOBAL SERVERS SECTION */}
-      <section id="servers" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="servers" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Map info */}
           <div className="lg:col-span-4 space-y-6 text-center lg:text-left">
@@ -595,7 +599,7 @@ export default function Home() {
       </section>
 
       {/* FAQ SECTION */}
-      <section id="faq" className="py-24 border-t border-white/5 bg-[#070A13]/20">
+      <section id="faq" className="py-24 border-t border-white/5 bg-[#070A13]/20 scroll-mt-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-xs font-bold text-brand-blue-500 uppercase tracking-widest">Support FAQ</h2>
@@ -663,7 +667,7 @@ export default function Home() {
       </section>
 
       {/* DOWNLOAD BANNER CTA */}
-      <section id="download" className="relative py-20 px-4 sm:px-6 lg:px-8 border-y border-white/5 bg-[#090D16]">
+      <section id="download" className="relative py-20 px-4 sm:px-6 lg:px-8 border-y border-white/5 bg-[#090D16] scroll-mt-20">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-blue-600/10 via-transparent to-brand-violet-600/10 pointer-events-none"></div>
         <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
@@ -677,7 +681,9 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             {/* Google Play Button */}
             <a
-              href="mailto:ganeshglive@gmail.com?subject=Expo%20VPN%20Android%20Beta"
+              href="https://play.google.com/store/apps/details?id=com.expo.vpn"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-3 w-52 px-5 py-3 rounded-xl bg-deep-black hover:bg-[#111827] border border-white/10 hover:border-brand-blue-500/50 transition-all duration-300 shadow-2xl group"
             >
               <svg className="w-6 h-6 text-gray-300 group-hover:text-white" viewBox="0 0 512 512" fill="currentColor">
@@ -711,8 +717,8 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#03060E] border-t border-white/5 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      <footer className="bg-[#03060E] border-t border-white/5 pt-10 pb-4 sm:pb-5 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
           
           {/* Logo and description */}
           <div className="md:col-span-5 space-y-3 text-center md:text-left">
@@ -751,7 +757,7 @@ export default function Home() {
         </div>
 
         {/* Bottom divider and copyright */}
-        <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/5 text-center text-[10px] text-gray-500">
+        <div className="max-w-7xl mx-auto mt-4 pt-4 border-t border-white/5 text-center text-[10px] text-gray-500">
           <p>&copy; {new Date().getFullYear()} Expo VPN. All Rights Reserved.</p>
         </div>
       </footer>

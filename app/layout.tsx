@@ -50,9 +50,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
     >
-      <body className="min-h-full bg-deep-black text-gray-100 flex flex-col font-sans selection:bg-brand-blue-500 selection:text-white">
+      <body className="min-h-screen bg-deep-black text-gray-100 flex flex-col font-sans selection:bg-brand-blue-500 selection:text-white">
         {children}
       </body>
     </html>
