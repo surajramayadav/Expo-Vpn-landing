@@ -117,6 +117,7 @@ export default function Home() {
               <a href="#features" className="text-sm text-gray-300 hover:text-white transition-colors">Features</a>
               <a href="#servers" className="text-sm text-gray-300 hover:text-white transition-colors">Servers</a>
               <a href="#faq" className="text-sm text-gray-300 hover:text-white transition-colors">FAQ</a>
+              <Link href="/support" className="text-sm text-gray-400 hover:text-white transition-colors">Support</Link>
               <Link href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy</Link>
               <Link href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">Terms</Link>
             </nav>
@@ -170,6 +171,12 @@ export default function Home() {
             >
               FAQ
             </a>
+            <Link
+              href="/support"
+              className="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+            >
+              Support & FAQ
+            </Link>
             <Link
               href="/privacy"
               className="block px-3 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
@@ -736,8 +743,10 @@ export default function Home() {
           </div>
 
           {/* Quick links */}
-          <div className="md:col-span-4 flex justify-center gap-8 text-xs font-semibold text-gray-400">
+          <div className="md:col-span-4 flex justify-center gap-6 text-xs font-semibold text-gray-400">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <span className="text-white/10">|</span>
+            <Link href="/support" className="hover:text-white transition-colors">Support</Link>
             <span className="text-white/10">|</span>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
