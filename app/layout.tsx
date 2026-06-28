@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Expo VPN — Fast, Free & Secure Mobile VPN",
-  description: "Expo VPN gives you uninterrupted, secure, and private browsing with one tap. Enjoy high-speed global servers, advanced encryption, and a strict no-logs policy. Completely free with zero configuration.",
+  description: "Expo VPN gives you uninterrupted, secure, and private browsing with one tap. Enjoy high-speed global servers, advanced encryption, and a strict no-logs policy. Free auto-connect option with zero configuration.",
   keywords: [
     "VPN",
     "free VPN",

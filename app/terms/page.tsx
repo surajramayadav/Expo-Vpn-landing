@@ -62,7 +62,7 @@ export default function TermsOfService() {
                   <strong>Unrestricted Content Access:</strong> Bypass geo-restrictions while maintaining complete anonymity.
                 </li>
                 <li>
-                  <strong>Completely Free Service:</strong> No subscription fees, no hidden charges, and no advertisements.
+                  <strong>Free Auto-Select Service:</strong> No subscription fees or login required for auto-connection. Selecting a specific custom server location manually requires a premium upgrade.
                 </li>
               </ul>
             </section>

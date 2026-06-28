@@ -211,7 +211,7 @@ export default function Home() {
             {/* Pill tag */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border-white/5 text-xs text-brand-blue-100 font-medium">
               <span className="w-2 h-2 rounded-full bg-brand-blue-500 animate-ping"></span>
-              <span>100% Free & No Registration Required</span>
+              <span>Free Smart Connect & No Registration Required</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-none">
@@ -622,7 +622,7 @@ export default function Home() {
             {[
               {
                 q: "Is Expo VPN completely free?",
-                a: "Yes! Expo VPN is 100% free with no subscription fees, no bandwidth caps, and no hidden charges. We believe digital privacy is a fundamental human right."
+                a: "Expo VPN offers free, unlimited data usage using our Smart Auto-Connect feature. If you wish to manually select and connect to a specific, premium server location, we offer a paid upgrade. Otherwise, auto-selection is 100% free with no bandwidth caps or registration required."
               },
               {
                 q: "Is my browsing data safe?",
@@ -682,7 +682,7 @@ export default function Home() {
             <span className="text-gradient-blue-violet">With Just One Tap</span>
           </h2>
           <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
-            Get instant access to high-speed global servers. Completely free, ads-free, and no configurations required.
+            Get instant access to high-speed global servers. Free auto-connect option, completely ads-free, and no configurations required.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">

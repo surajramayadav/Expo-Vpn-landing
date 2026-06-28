@@ -8,7 +8,7 @@ import { ArrowLeft, HelpCircle, ChevronDown, Mail, Copy, Check, Search } from "l
 const FAQ_DATA = [
   {
     q: "Is Expo VPN completely free?",
-    a: "Yes! Expo VPN is 100% free with no subscription fees, no bandwidth caps, and no hidden charges. We believe digital privacy is a fundamental human right."
+    a: "Expo VPN offers free, unlimited data usage using our Smart Auto-Connect feature. If you wish to manually select and connect to a specific, premium server location, we offer a paid upgrade. Otherwise, auto-selection is 100% free with no bandwidth caps or registration required."
   },
   {
     q: "Is my browsing data safe?",
